@@ -1,0 +1,28 @@
+name: riverpod_bookstore
+
+packages:
+  - packages/**
+
+
+analyze:
+  run: melos exec -c 1 -- flutter analyze .
+  description: Run analyze in all packages
+
+generate:
+  run: melos run generate:app
+  description: Build all generated files
+
+generate:app:
+  run: melos exec -c 1 --depends-on="build_runner" --fltter -- "flutter pub run build_runner build --delete-conflicting-outputs"
+  description: Build generated files for the app package
+
+test:
+  run: melos run test:flutter
+  description: Run all tests
+
+test:flutter:
+  run: melos exec --dir-exists="test" -c 1 --fail-fast -- "flutter test --coverage"
+  description: Run Flutter tests for all flutter packages
+  select-package:
+    flutter: true
+    dir-exists: test
