@@ -60,7 +60,6 @@ class BookstoreNavigationStack extends StateNotifier<List<BookstorePage>> {
 
   void search() => state = state.toList()..add(searchPage);
   void categories() => state = state.toList()..add(categoriesPage);
-
   void pop() => state = state.length == 1 ? state : state.toList()
     ..removeLast();
 }

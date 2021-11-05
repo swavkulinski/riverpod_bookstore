@@ -9,12 +9,16 @@ scripts:
     description: Run analyze in all packages
 
   generate:
-    run: melos run generate:app
+    run: melos run generate:api | melos run generate:app
     description: Build all generated files
 
   generate:app:
     run: melos exec -c 1 --depends-on="build_runner" --flutter -- "flutter pub run build_runner build --delete-conflicting-outputs"
     description: Build generated files for the app package
+
+  generate:api:
+    run: melos exec -c 1 --depends-on="build_runner" --no-flutter -- "pub run build_runner build --delete-conflicting-outputs"
+    description: Build generated files for the API package
 
   test:
     run: melos run test:flutter
