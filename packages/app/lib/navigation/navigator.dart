@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_bookstore_api/book.dart';
+import 'package:riverpod_bookstore_app/book_details/page.dart';
+import 'package:riverpod_bookstore_app/books/page.dart';
 import 'package:riverpod_bookstore_app/categories/page.dart';
 import 'package:riverpod_bookstore_app/landing_page/page.dart';
 import 'package:riverpod_bookstore_app/navigation/bookstore_route.dart';
@@ -29,8 +32,7 @@ class BookstoreRouterDelegate extends RouterDelegate<BookstoreRoute>
   GlobalKey<NavigatorState>? get navigatorKey => ref.read(_bookstoreNavigatorKeyProvider);
 
   @override
-  Future<void> setNewRoutePath(configuration) async {
-  }
+  Future<void> setNewRoutePath(configuration) async {}
 }
 
 typedef BookstorePage = MaterialPage<void>;
@@ -51,15 +53,25 @@ const searchPage = BookstorePage(
   child: SearchPage(),
 );
 
+BookstorePage booksPage(List<Book> books) =>
+    BookstorePage(key: const BookstorePageKey('books'), child: BooksPage(books: books));
+
+BookstorePage bookDetailsPage(Book book) =>
+    BookstorePage(key: const BookstorePageKey('bookDetails'), child: BookDetailsPage(book: book));
+
 final bookstoreNavigationStackProvider =
     StateNotifierProvider<BookstoreNavigationStack, List<BookstorePage>>(
-        (_) => BookstoreNavigationStack());
+        (ref) => BookstoreNavigationStack(ref));
 
 class BookstoreNavigationStack extends StateNotifier<List<BookstorePage>> {
-  BookstoreNavigationStack() : super([landingPage]);
+  final ProviderReference ref;
+  BookstoreNavigationStack(this.ref) : super([landingPage]);
 
   void search() => state = state.toList()..add(searchPage);
   void categories() => state = state.toList()..add(categoriesPage);
+  void category(BookCategory category) =>
+      state = state.toList()..add(booksPage(ref.watch(booksByCategoryProvider(category))));
+  void book(Book book) => state = state.toList()..add(bookDetailsPage(book));
   void pop() => state = state.length == 1 ? state : state.toList()
     ..removeLast();
 }

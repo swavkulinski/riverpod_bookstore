@@ -75,8 +75,8 @@ a living and a sentient being, and attempt to communicate with it.
   """)
 ];
 
-const sciFi = const Category(name: 'Science Fiction');
-const fantasy = const Category(name: 'Fantasy');
+const sciFi = const BookCategory(name: 'Science Fiction');
+const fantasy = const BookCategory(name: 'Fantasy');
 
 final categoryProvider = Provider((_) => [sciFi, fantasy]);
 final bookstoreRepositoryProvider =

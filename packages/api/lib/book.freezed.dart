@@ -19,7 +19,7 @@ class _$BookTearOff {
 
   _Book call(
       {required String title,
-      required Category category,
+      required BookCategory category,
       required String author,
       required String synopsis}) {
     return _Book(
@@ -37,7 +37,7 @@ const $Book = _$BookTearOff();
 /// @nodoc
 mixin _$Book {
   String get title => throw _privateConstructorUsedError;
-  Category get category => throw _privateConstructorUsedError;
+  BookCategory get category => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
   String get synopsis => throw _privateConstructorUsedError;
 
@@ -49,9 +49,10 @@ mixin _$Book {
 abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res>;
-  $Res call({String title, Category category, String author, String synopsis});
+  $Res call(
+      {String title, BookCategory category, String author, String synopsis});
 
-  $CategoryCopyWith<$Res> get category;
+  $BookCategoryCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -77,7 +78,7 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as BookCategory,
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -90,8 +91,8 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
   }
 
   @override
-  $CategoryCopyWith<$Res> get category {
-    return $CategoryCopyWith<$Res>(_value.category, (value) {
+  $BookCategoryCopyWith<$Res> get category {
+    return $BookCategoryCopyWith<$Res>(_value.category, (value) {
       return _then(_value.copyWith(category: value));
     });
   }
@@ -102,10 +103,11 @@ abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
   factory _$BookCopyWith(_Book value, $Res Function(_Book) then) =
       __$BookCopyWithImpl<$Res>;
   @override
-  $Res call({String title, Category category, String author, String synopsis});
+  $Res call(
+      {String title, BookCategory category, String author, String synopsis});
 
   @override
-  $CategoryCopyWith<$Res> get category;
+  $BookCategoryCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -132,7 +134,7 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as BookCategory,
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -157,7 +159,7 @@ class _$_Book implements _Book {
   @override
   final String title;
   @override
-  final Category category;
+  final BookCategory category;
   @override
   final String author;
   @override
@@ -201,14 +203,14 @@ class _$_Book implements _Book {
 abstract class _Book implements Book {
   factory _Book(
       {required String title,
-      required Category category,
+      required BookCategory category,
       required String author,
       required String synopsis}) = _$_Book;
 
   @override
   String get title => throw _privateConstructorUsedError;
   @override
-  Category get category => throw _privateConstructorUsedError;
+  BookCategory get category => throw _privateConstructorUsedError;
   @override
   String get author => throw _privateConstructorUsedError;
   @override
@@ -219,42 +221,43 @@ abstract class _Book implements Book {
 }
 
 /// @nodoc
-class _$CategoryTearOff {
-  const _$CategoryTearOff();
+class _$BookCategoryTearOff {
+  const _$BookCategoryTearOff();
 
-  _Category call({required String name}) {
-    return _Category(
+  _BookCategory call({required String name}) {
+    return _BookCategory(
       name: name,
     );
   }
 }
 
 /// @nodoc
-const $Category = _$CategoryTearOff();
+const $BookCategory = _$BookCategoryTearOff();
 
 /// @nodoc
-mixin _$Category {
+mixin _$BookCategory {
   String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CategoryCopyWith<Category> get copyWith =>
+  $BookCategoryCopyWith<BookCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoryCopyWith<$Res> {
-  factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
-      _$CategoryCopyWithImpl<$Res>;
+abstract class $BookCategoryCopyWith<$Res> {
+  factory $BookCategoryCopyWith(
+          BookCategory value, $Res Function(BookCategory) then) =
+      _$BookCategoryCopyWithImpl<$Res>;
   $Res call({String name});
 }
 
 /// @nodoc
-class _$CategoryCopyWithImpl<$Res> implements $CategoryCopyWith<$Res> {
-  _$CategoryCopyWithImpl(this._value, this._then);
+class _$BookCategoryCopyWithImpl<$Res> implements $BookCategoryCopyWith<$Res> {
+  _$BookCategoryCopyWithImpl(this._value, this._then);
 
-  final Category _value;
+  final BookCategory _value;
   // ignore: unused_field
-  final $Res Function(Category) _then;
+  final $Res Function(BookCategory) _then;
 
   @override
   $Res call({
@@ -270,27 +273,30 @@ class _$CategoryCopyWithImpl<$Res> implements $CategoryCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
-  factory _$CategoryCopyWith(_Category value, $Res Function(_Category) then) =
-      __$CategoryCopyWithImpl<$Res>;
+abstract class _$BookCategoryCopyWith<$Res>
+    implements $BookCategoryCopyWith<$Res> {
+  factory _$BookCategoryCopyWith(
+          _BookCategory value, $Res Function(_BookCategory) then) =
+      __$BookCategoryCopyWithImpl<$Res>;
   @override
   $Res call({String name});
 }
 
 /// @nodoc
-class __$CategoryCopyWithImpl<$Res> extends _$CategoryCopyWithImpl<$Res>
-    implements _$CategoryCopyWith<$Res> {
-  __$CategoryCopyWithImpl(_Category _value, $Res Function(_Category) _then)
-      : super(_value, (v) => _then(v as _Category));
+class __$BookCategoryCopyWithImpl<$Res> extends _$BookCategoryCopyWithImpl<$Res>
+    implements _$BookCategoryCopyWith<$Res> {
+  __$BookCategoryCopyWithImpl(
+      _BookCategory _value, $Res Function(_BookCategory) _then)
+      : super(_value, (v) => _then(v as _BookCategory));
 
   @override
-  _Category get _value => super._value as _Category;
+  _BookCategory get _value => super._value as _BookCategory;
 
   @override
   $Res call({
     Object? name = freezed,
   }) {
-    return _then(_Category(
+    return _then(_BookCategory(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -301,21 +307,21 @@ class __$CategoryCopyWithImpl<$Res> extends _$CategoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Category implements _Category {
-  const _$_Category({required this.name});
+class _$_BookCategory implements _BookCategory {
+  const _$_BookCategory({required this.name});
 
   @override
   final String name;
 
   @override
   String toString() {
-    return 'Category(name: $name)';
+    return 'BookCategory(name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Category &&
+        (other is _BookCategory &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)));
   }
@@ -326,17 +332,17 @@ class _$_Category implements _Category {
 
   @JsonKey(ignore: true)
   @override
-  _$CategoryCopyWith<_Category> get copyWith =>
-      __$CategoryCopyWithImpl<_Category>(this, _$identity);
+  _$BookCategoryCopyWith<_BookCategory> get copyWith =>
+      __$BookCategoryCopyWithImpl<_BookCategory>(this, _$identity);
 }
 
-abstract class _Category implements Category {
-  const factory _Category({required String name}) = _$_Category;
+abstract class _BookCategory implements BookCategory {
+  const factory _BookCategory({required String name}) = _$_BookCategory;
 
   @override
   String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CategoryCopyWith<_Category> get copyWith =>
+  _$BookCategoryCopyWith<_BookCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }

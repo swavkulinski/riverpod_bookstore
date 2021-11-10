@@ -6,12 +6,12 @@ part 'book.freezed.dart';
 class Book with _$Book {
   factory Book(
       {required String title,
-      required Category category,
+      required BookCategory category,
       required String author,
       required String synopsis}) = _Book;
 }
 
 @freezed
-class Category with _$Category {
-  const factory  Category({required String name}) = _Category;
+class BookCategory with _$BookCategory {
+  const factory  BookCategory({required String name}) = _BookCategory;
 }
