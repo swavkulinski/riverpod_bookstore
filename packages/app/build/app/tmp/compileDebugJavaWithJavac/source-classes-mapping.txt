@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/example/riverpod_bookstore/BuildConfig.java
- com.example.riverpod_bookstore.BuildConfig
