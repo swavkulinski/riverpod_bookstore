@@ -40,7 +40,7 @@ who inherits the Ring and steps into legend. A daunting task lies ahead for Frod
 when he becomes the Ringbearer - to destroy the One Ring in the fires of Mount Doom 
 where it was forged.
 """),
-  Book(author: 'Isaak Asimov', title: 'Foundation', category: sciFi, synopsis: """
+  Book(author: 'Isaac Asimov', title: 'Foundation', category: sciFi, synopsis: """
 Gaal Dornick travels to the Galactic Empire's capital, Trantor, to take a job with 
 his hero, Hari Seldon. When the two meet, Seldon uses a branch of mathematics called 
 psychohistory to prove that the Galactic Empire will fall in three centuries, 
