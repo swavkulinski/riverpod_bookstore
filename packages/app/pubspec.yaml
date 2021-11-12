@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  freezed_annotation: ^0.14.0 
+  freezed_annotation: ^0.15.0 
   riverpod: ^1.0.0
   flutter_riverpod: ^1.0.0
   riverpod_bookstore_api:
@@ -22,7 +22,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
-  freezed: ^0.14.5  
+  freezed: ^0.15.0  
   build_runner: ^2.1.4
 
 flutter:
