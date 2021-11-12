@@ -8,11 +8,11 @@ import 'package:riverpod_bookstore_app/navigation/navigator.dart';
 final booksByCategoryProvider = Provider.family<List<Book>, BookCategory>((ref, category) =>
     ref.watch(bookstoreRepositoryProvider).where((book) => book.category == category).toList());
 
-class BooksPage extends ConsumerWidget {
+class BooksPage extends StatelessWidget {
   final List<Book> books;
   const BooksPage({Key? key, required this.books}) : super(key: key);
   @override
-  Widget build(BuildContext context, ScopedReader watch) =>
+  Widget build(BuildContext context) =>
       BookstoreScaffold(titleLabel: 'Books', child: _BooksPage(books:books));
 }
 
@@ -30,13 +30,13 @@ class _BooksPage extends StatelessWidget {
   }
 }
 
-class BookTile extends StatelessWidget {
+class BookTile extends ConsumerWidget {
   final Book book;
 
   const BookTile({Key? key, required this.book}) : super(key: key);
   @override
-  Widget build(BuildContext context) => GestureDetector(
-    onTap: () => context.read(bookstoreNavigationStackProvider.notifier).book(book),
+  Widget build(BuildContext context, WidgetRef ref) => GestureDetector(
+    onTap: () => ref.watch(bookstoreNavigationStackProvider.notifier).book(book),
     child: ListTile(
           title: Text(book.title),
           subtitle: Text('by ${book.author}'),

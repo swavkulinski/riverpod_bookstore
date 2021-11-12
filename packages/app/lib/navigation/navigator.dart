@@ -17,7 +17,7 @@ final bookstoreRouterDelegateProvider =
 
 class BookstoreRouterDelegate extends RouterDelegate<BookstoreRoute>
     with PopNavigatorRouterDelegateMixin, ChangeNotifier {
-  final ProviderReference ref;
+  final Ref ref;
   BookstoreRouterDelegate(this.ref);
   @override
   Widget build(BuildContext context) => Navigator(
@@ -29,7 +29,7 @@ class BookstoreRouterDelegate extends RouterDelegate<BookstoreRoute>
         },
       );
   @override
-  GlobalKey<NavigatorState>? get navigatorKey => ref.read(_bookstoreNavigatorKeyProvider);
+  GlobalKey<NavigatorState> get navigatorKey => ref.read(_bookstoreNavigatorKeyProvider);
 
   @override
   Future<void> setNewRoutePath(configuration) async {}
@@ -64,7 +64,7 @@ final bookstoreNavigationStackProvider =
         (ref) => BookstoreNavigationStack(ref));
 
 class BookstoreNavigationStack extends StateNotifier<List<BookstorePage>> {
-  final ProviderReference ref;
+  final Ref ref;
   BookstoreNavigationStack(this.ref) : super([landingPage]);
 
   void search() => state = state.toList()..add(searchPage);

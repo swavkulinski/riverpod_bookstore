@@ -10,11 +10,11 @@ class LandingPage extends ConsumerWidget {
   const LandingPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final navigator = watch(bookstoreNavigationStackProvider.notifier);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final navigator = ref.watch(bookstoreNavigationStackProvider.notifier);
     return Scaffold(
       appBar: AppBar(
-        title: Text(watch(_landingPageTitleProvider)),
+        title: Text(ref.watch(_landingPageTitleProvider)),
       ),
       body: Center(
         child: Column(
@@ -24,13 +24,13 @@ class LandingPage extends ConsumerWidget {
               onPressed: navigator.search,
               icon: const Icon(Icons.search),
               label: Text(
-                watch(_landingSearchLabelProvider),
+                ref.watch(_landingSearchLabelProvider),
               ),
             ),
             ElevatedButton.icon(
                 onPressed: navigator.categories,
                 icon: const Icon(Icons.category),
-                label: Text(watch(_landingCategoryLabelProvider)))
+                label: Text(ref.watch(_landingCategoryLabelProvider)))
           ],
         ),
       ),

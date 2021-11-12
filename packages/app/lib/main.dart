@@ -10,10 +10,10 @@ class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      routerDelegate: watch(bookstoreRouterDelegateProvider),
-      routeInformationParser: watch(bookstoreRouteInformationParser),
+      routerDelegate: ref.watch(bookstoreRouterDelegateProvider),
+      routeInformationParser: ref.watch(bookstoreRouteInformationParser),
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
