@@ -18,11 +18,13 @@ class _$BookTearOff {
   const _$BookTearOff();
 
   _Book call(
-      {required String title,
+      {required int id,
+      required String title,
       required BookCategory category,
       required String author,
       required String synopsis}) {
     return _Book(
+      id: id,
       title: title,
       category: category,
       author: author,
@@ -36,6 +38,7 @@ const $Book = _$BookTearOff();
 
 /// @nodoc
 mixin _$Book {
+  int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   BookCategory get category => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
@@ -50,7 +53,11 @@ abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res>;
   $Res call(
-      {String title, BookCategory category, String author, String synopsis});
+      {int id,
+      String title,
+      BookCategory category,
+      String author,
+      String synopsis});
 
   $BookCategoryCopyWith<$Res> get category;
 }
@@ -65,12 +72,17 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? category = freezed,
     Object? author = freezed,
     Object? synopsis = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -104,7 +116,11 @@ abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       __$BookCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String title, BookCategory category, String author, String synopsis});
+      {int id,
+      String title,
+      BookCategory category,
+      String author,
+      String synopsis});
 
   @override
   $BookCategoryCopyWith<$Res> get category;
@@ -121,12 +137,17 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? category = freezed,
     Object? author = freezed,
     Object? synopsis = freezed,
   }) {
     return _then(_Book(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -151,11 +172,14 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 
 class _$_Book implements _Book {
   _$_Book(
-      {required this.title,
+      {required this.id,
+      required this.title,
       required this.category,
       required this.author,
       required this.synopsis});
 
+  @override
+  final int id;
   @override
   final String title;
   @override
@@ -167,32 +191,26 @@ class _$_Book implements _Book {
 
   @override
   String toString() {
-    return 'Book(title: $title, category: $category, author: $author, synopsis: $synopsis)';
+    return 'Book(id: $id, title: $title, category: $category, author: $author, synopsis: $synopsis)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Book &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Book &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.category, category) ||
-                const DeepCollectionEquality()
-                    .equals(other.category, category)) &&
-            (identical(other.author, author) ||
-                const DeepCollectionEquality().equals(other.author, author)) &&
+                other.category == category) &&
+            (identical(other.author, author) || other.author == author) &&
             (identical(other.synopsis, synopsis) ||
-                const DeepCollectionEquality()
-                    .equals(other.synopsis, synopsis)));
+                other.synopsis == synopsis));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(category) ^
-      const DeepCollectionEquality().hash(author) ^
-      const DeepCollectionEquality().hash(synopsis);
+      Object.hash(runtimeType, id, title, category, author, synopsis);
 
   @JsonKey(ignore: true)
   @override
@@ -202,19 +220,22 @@ class _$_Book implements _Book {
 
 abstract class _Book implements Book {
   factory _Book(
-      {required String title,
+      {required int id,
+      required String title,
       required BookCategory category,
       required String author,
       required String synopsis}) = _$_Book;
 
   @override
-  String get title => throw _privateConstructorUsedError;
+  int get id;
   @override
-  BookCategory get category => throw _privateConstructorUsedError;
+  String get title;
   @override
-  String get author => throw _privateConstructorUsedError;
+  BookCategory get category;
   @override
-  String get synopsis => throw _privateConstructorUsedError;
+  String get author;
+  @override
+  String get synopsis;
   @override
   @JsonKey(ignore: true)
   _$BookCopyWith<_Book> get copyWith => throw _privateConstructorUsedError;
@@ -321,14 +342,13 @@ class _$_BookCategory implements _BookCategory {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _BookCategory &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _BookCategory &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
@@ -340,7 +360,7 @@ abstract class _BookCategory implements BookCategory {
   const factory _BookCategory({required String name}) = _$_BookCategory;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$BookCategoryCopyWith<_BookCategory> get copyWith =>

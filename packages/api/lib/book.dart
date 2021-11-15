@@ -5,7 +5,9 @@ part 'book.freezed.dart';
 @freezed
 class Book with _$Book {
   factory Book(
-      {required String title,
+      {
+        required int id,
+        required String title,
       required BookCategory category,
       required String author,
       required String synopsis}) = _Book;

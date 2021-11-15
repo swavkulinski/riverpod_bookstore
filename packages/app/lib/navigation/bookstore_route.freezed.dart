@@ -139,7 +139,8 @@ class _$LandingBookstoreRoute implements LandingBookstoreRoute {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is LandingBookstoreRoute);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LandingBookstoreRoute);
   }
 
   @override
@@ -255,7 +256,8 @@ class _$SearchBookstoreRoute implements SearchBookstoreRoute {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SearchBookstoreRoute);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SearchBookstoreRoute);
   }
 
   @override
@@ -372,7 +374,8 @@ class _$CategoriesBookstoreRoute implements CategoriesBookstoreRoute {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is CategoriesBookstoreRoute);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is CategoriesBookstoreRoute);
   }
 
   @override
@@ -488,7 +491,8 @@ class _$BooksBookstoreRoute implements BooksBookstoreRoute {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is BooksBookstoreRoute);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is BooksBookstoreRoute);
   }
 
   @override
