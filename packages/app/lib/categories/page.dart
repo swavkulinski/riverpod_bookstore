@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_bookstore_api/book.dart';
-import 'package:riverpod_bookstore_api/repository.dart';
+import 'package:riverpod_bookstore_api/api.dart';
 import 'package:riverpod_bookstore_app/common/bookstore_scaffold.dart';
 import 'package:riverpod_bookstore_app/navigation/navigator.dart';
 

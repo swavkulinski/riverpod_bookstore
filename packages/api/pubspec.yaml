@@ -10,4 +10,5 @@ dependencies:
 dev_dependencies:
   freezed: ^0.15.0
   test: ^1.19.3
+  mockito: 
   build_runner: ^2.1.4

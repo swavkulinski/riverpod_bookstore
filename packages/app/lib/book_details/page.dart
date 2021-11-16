@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_bookstore_api/book.dart';
+import 'package:riverpod_bookstore_api/api.dart';
 import 'package:riverpod_bookstore_app/common/bookstore_scaffold.dart';
 
 class BookDetailsPage extends StatelessWidget {
