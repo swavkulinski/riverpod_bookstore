@@ -67,13 +67,13 @@ class BookstoreNavigationStack extends StateNotifier<List<BookstorePage>> {
   final Ref ref;
   BookstoreNavigationStack(this.ref) : super([landingPage]);
 
-  void search() => state = state.toList()..add(searchPage);
-  void categories() => state = state.toList()..add(categoriesPage);
+  void search() => state = List.from(state..add(searchPage));
+  void categories() => state = List.from(state..add(categoriesPage));
   void category(BookCategory category) =>
-      state = state.toList()..add(booksPage(ref.watch(booksByCategoryProvider(category))));
-  void book(Book book) => state = state.toList()..add(bookDetailsPage(book));
-  void pop() => state = state.length == 1 ? state : state.toList()
-    ..removeLast();
+      state = List.from(state..add(booksPage(ref.watch(booksByCategoryProvider(category)))));
+  void book(Book book) => state = List.from(state..add(bookDetailsPage(book)));
+  void pop() => state = state.length == 1 ? state : List.from(state
+    ..removeLast());
 }
 
 final bookstoreRouteInformationParser =

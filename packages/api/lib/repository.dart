@@ -3,31 +3,31 @@ import 'package:riverpod_bookstore_api/book.dart';
 
 
 
-class BookstoreRepository extends StateNotifier<BookstoreState> {
-  BookstoreRepository() : super(BookstoreState(collection: initialBooks));
+class BookstoreRepository extends StateNotifier<List<Book>> {
+  BookstoreRepository() : super( initialBooks);
 
   void registerBook(Book book) {
-    state = BookstoreState(collection: state.collection..add(book));
+    state = List.of(state..add(book));
   }
 
   void removeBook(Book book) {
-    state = BookstoreState(collection: state.collection..remove(book));
+    state = List.of(state..remove(book));
   }
 
   void registerCollection(List<Book> books) {
-    state = BookstoreState(collection:state.collection..addAll(books));
+    state = List.of(state..addAll(books));
   }
 }
 
-class CategoryRepository extends StateNotifier<BookCategoryState> {
-  CategoryRepository() : super(BookCategoryState(collection: [sciFi, fantasy]));
+class CategoryRepository extends StateNotifier<List<BookCategory>> {
+  CategoryRepository() : super([sciFi, fantasy]);
 
   void addCategory(BookCategory bookCategory) {
-    state = BookCategoryState(collection: state.collection..add(bookCategory));
+    state =  List.of(state..add(bookCategory));
   }
 
   void removeCategory(BookCategory bookCategory) {
-    state = BookCategoryState(collection: state.collection..add(bookCategory));
+    state = List.of(state..add(bookCategory));
   }
 }
 
@@ -98,6 +98,6 @@ a living and a sentient being, and attempt to communicate with it.
 const sciFi = const BookCategory(name: 'Science Fiction');
 const fantasy = const BookCategory(name: 'Fantasy');
 
-final categoryProvider = StateNotifierProvider<CategoryRepository,BookCategoryState>((_) => CategoryRepository());
+final categoryProvider = StateNotifierProvider<CategoryRepository,List<BookCategory>>((_) => CategoryRepository());
 final bookstoreRepositoryProvider =
-    StateNotifierProvider<BookstoreRepository, BookstoreState>((_) => BookstoreRepository());
+    StateNotifierProvider<BookstoreRepository, List<Book>>((_) => BookstoreRepository());

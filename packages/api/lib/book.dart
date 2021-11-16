@@ -16,13 +16,3 @@ class Book with _$Book {
 class BookCategory with _$BookCategory {
   const factory BookCategory({required String name}) = _BookCategory;
 }
-
-@freezed
-class BookstoreState with _$BookstoreState {
-  const factory BookstoreState({required List<Book> collection}) = _BookstoreState;
-}
-
-@freezed
-class BookCategoryState with _$BookCategoryState {
-  const factory BookCategoryState({required List<BookCategory> collection}) = _BookCategoryState;
-}
