@@ -6,7 +6,7 @@ import 'package:riverpod_bookstore_app/common/bookstore_scaffold.dart';
 import 'package:riverpod_bookstore_app/navigation/navigator.dart';
 
 final booksByCategoryProvider = Provider.family<List<Book>, BookCategory>((ref, category) =>
-    ref.watch(bookstoreRepositoryProvider).where((book) => book.category == category).toList());
+    ref.watch(bookstoreRepositoryProvider).collection.where((book) => book.category == category).toList());
 
 class BooksPage extends StatelessWidget {
   final List<Book> books;

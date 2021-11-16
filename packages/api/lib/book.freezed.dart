@@ -366,3 +366,265 @@ abstract class _BookCategory implements BookCategory {
   _$BookCategoryCopyWith<_BookCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$BookstoreStateTearOff {
+  const _$BookstoreStateTearOff();
+
+  _BookstoreState call({required List<Book> collection}) {
+    return _BookstoreState(
+      collection: collection,
+    );
+  }
+}
+
+/// @nodoc
+const $BookstoreState = _$BookstoreStateTearOff();
+
+/// @nodoc
+mixin _$BookstoreState {
+  List<Book> get collection => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BookstoreStateCopyWith<BookstoreState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BookstoreStateCopyWith<$Res> {
+  factory $BookstoreStateCopyWith(
+          BookstoreState value, $Res Function(BookstoreState) then) =
+      _$BookstoreStateCopyWithImpl<$Res>;
+  $Res call({List<Book> collection});
+}
+
+/// @nodoc
+class _$BookstoreStateCopyWithImpl<$Res>
+    implements $BookstoreStateCopyWith<$Res> {
+  _$BookstoreStateCopyWithImpl(this._value, this._then);
+
+  final BookstoreState _value;
+  // ignore: unused_field
+  final $Res Function(BookstoreState) _then;
+
+  @override
+  $Res call({
+    Object? collection = freezed,
+  }) {
+    return _then(_value.copyWith(
+      collection: collection == freezed
+          ? _value.collection
+          : collection // ignore: cast_nullable_to_non_nullable
+              as List<Book>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$BookstoreStateCopyWith<$Res>
+    implements $BookstoreStateCopyWith<$Res> {
+  factory _$BookstoreStateCopyWith(
+          _BookstoreState value, $Res Function(_BookstoreState) then) =
+      __$BookstoreStateCopyWithImpl<$Res>;
+  @override
+  $Res call({List<Book> collection});
+}
+
+/// @nodoc
+class __$BookstoreStateCopyWithImpl<$Res>
+    extends _$BookstoreStateCopyWithImpl<$Res>
+    implements _$BookstoreStateCopyWith<$Res> {
+  __$BookstoreStateCopyWithImpl(
+      _BookstoreState _value, $Res Function(_BookstoreState) _then)
+      : super(_value, (v) => _then(v as _BookstoreState));
+
+  @override
+  _BookstoreState get _value => super._value as _BookstoreState;
+
+  @override
+  $Res call({
+    Object? collection = freezed,
+  }) {
+    return _then(_BookstoreState(
+      collection: collection == freezed
+          ? _value.collection
+          : collection // ignore: cast_nullable_to_non_nullable
+              as List<Book>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_BookstoreState implements _BookstoreState {
+  const _$_BookstoreState({required this.collection});
+
+  @override
+  final List<Book> collection;
+
+  @override
+  String toString() {
+    return 'BookstoreState(collection: $collection)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _BookstoreState &&
+            const DeepCollectionEquality()
+                .equals(other.collection, collection));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(collection));
+
+  @JsonKey(ignore: true)
+  @override
+  _$BookstoreStateCopyWith<_BookstoreState> get copyWith =>
+      __$BookstoreStateCopyWithImpl<_BookstoreState>(this, _$identity);
+}
+
+abstract class _BookstoreState implements BookstoreState {
+  const factory _BookstoreState({required List<Book> collection}) =
+      _$_BookstoreState;
+
+  @override
+  List<Book> get collection;
+  @override
+  @JsonKey(ignore: true)
+  _$BookstoreStateCopyWith<_BookstoreState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$BookCategoryStateTearOff {
+  const _$BookCategoryStateTearOff();
+
+  _BookCategoryState call({required List<BookCategory> collection}) {
+    return _BookCategoryState(
+      collection: collection,
+    );
+  }
+}
+
+/// @nodoc
+const $BookCategoryState = _$BookCategoryStateTearOff();
+
+/// @nodoc
+mixin _$BookCategoryState {
+  List<BookCategory> get collection => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BookCategoryStateCopyWith<BookCategoryState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BookCategoryStateCopyWith<$Res> {
+  factory $BookCategoryStateCopyWith(
+          BookCategoryState value, $Res Function(BookCategoryState) then) =
+      _$BookCategoryStateCopyWithImpl<$Res>;
+  $Res call({List<BookCategory> collection});
+}
+
+/// @nodoc
+class _$BookCategoryStateCopyWithImpl<$Res>
+    implements $BookCategoryStateCopyWith<$Res> {
+  _$BookCategoryStateCopyWithImpl(this._value, this._then);
+
+  final BookCategoryState _value;
+  // ignore: unused_field
+  final $Res Function(BookCategoryState) _then;
+
+  @override
+  $Res call({
+    Object? collection = freezed,
+  }) {
+    return _then(_value.copyWith(
+      collection: collection == freezed
+          ? _value.collection
+          : collection // ignore: cast_nullable_to_non_nullable
+              as List<BookCategory>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$BookCategoryStateCopyWith<$Res>
+    implements $BookCategoryStateCopyWith<$Res> {
+  factory _$BookCategoryStateCopyWith(
+          _BookCategoryState value, $Res Function(_BookCategoryState) then) =
+      __$BookCategoryStateCopyWithImpl<$Res>;
+  @override
+  $Res call({List<BookCategory> collection});
+}
+
+/// @nodoc
+class __$BookCategoryStateCopyWithImpl<$Res>
+    extends _$BookCategoryStateCopyWithImpl<$Res>
+    implements _$BookCategoryStateCopyWith<$Res> {
+  __$BookCategoryStateCopyWithImpl(
+      _BookCategoryState _value, $Res Function(_BookCategoryState) _then)
+      : super(_value, (v) => _then(v as _BookCategoryState));
+
+  @override
+  _BookCategoryState get _value => super._value as _BookCategoryState;
+
+  @override
+  $Res call({
+    Object? collection = freezed,
+  }) {
+    return _then(_BookCategoryState(
+      collection: collection == freezed
+          ? _value.collection
+          : collection // ignore: cast_nullable_to_non_nullable
+              as List<BookCategory>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_BookCategoryState implements _BookCategoryState {
+  const _$_BookCategoryState({required this.collection});
+
+  @override
+  final List<BookCategory> collection;
+
+  @override
+  String toString() {
+    return 'BookCategoryState(collection: $collection)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _BookCategoryState &&
+            const DeepCollectionEquality()
+                .equals(other.collection, collection));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(collection));
+
+  @JsonKey(ignore: true)
+  @override
+  _$BookCategoryStateCopyWith<_BookCategoryState> get copyWith =>
+      __$BookCategoryStateCopyWithImpl<_BookCategoryState>(this, _$identity);
+}
+
+abstract class _BookCategoryState implements BookCategoryState {
+  const factory _BookCategoryState({required List<BookCategory> collection}) =
+      _$_BookCategoryState;
+
+  @override
+  List<BookCategory> get collection;
+  @override
+  @JsonKey(ignore: true)
+  _$BookCategoryStateCopyWith<_BookCategoryState> get copyWith =>
+      throw _privateConstructorUsedError;
+}

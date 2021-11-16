@@ -18,9 +18,9 @@ class _CategoriesPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final categories = ref.watch(categoryProvider);
     return ListView.builder(
-      itemCount: categories.length,
+      itemCount: categories.collection.length,
       itemBuilder: (context, index) => CategoryTile(
-        category: categories[index],
+        category: categories.collection[index],
       ),
     );
   }

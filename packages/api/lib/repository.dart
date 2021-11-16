@@ -1,26 +1,38 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_bookstore_api/book.dart';
 
-class BookstoreRepository extends StateNotifier<List<Book>> {
-  BookstoreRepository() : super(initialBooks);
+
+
+class BookstoreRepository extends StateNotifier<BookstoreState> {
+  BookstoreRepository() : super(BookstoreState(collection: initialBooks));
 
   void registerBook(Book book) {
-    state = state.toList()..add(book);
+    state = BookstoreState(collection: state.collection..add(book));
   }
 
   void removeBook(Book book) {
-    state = state.toList()..remove(book);
+    state = BookstoreState(collection: state.collection..remove(book));
   }
 
   void registerCollection(List<Book> books) {
-    state = state.toList()..addAll(books);
+    state = BookstoreState(collection:state.collection..addAll(books));
+  }
+}
+
+class CategoryRepository extends StateNotifier<BookCategoryState> {
+  CategoryRepository() : super(BookCategoryState(collection: [sciFi, fantasy]));
+
+  void addCategory(BookCategory bookCategory) {
+    state = BookCategoryState(collection: state.collection..add(bookCategory));
+  }
+
+  void removeCategory(BookCategory bookCategory) {
+    state = BookCategoryState(collection: state.collection..add(bookCategory));
   }
 }
 
 final initialBooks = [
-  Book(
-    id: 0,
-    author: 'Frank Herbert', title: 'Dune', category: sciFi, synopsis: """
+  Book(id: 0, author: 'Frank Herbert', title: 'Dune', category: sciFi, synopsis: """
 Dune is set in the distant future amidst a feudal interstellar society in which 
 various noble houses control planetary fiefs. It tells the story of young Paul Atreides, 
 whose family accepts the stewardship of the planet Arrakis. While the planet is 
@@ -35,8 +47,11 @@ of the empire confront each other in a struggle for the control of Arrakis and
 its spice.
 """),
   Book(
-    id: 1,
-    author: 'J. R. R. Tolkien', title: 'The Lord of the Rings', category: fantasy, synopsis: """
+      id: 1,
+      author: 'J. R. R. Tolkien',
+      title: 'The Lord of the Rings',
+      category: fantasy,
+      synopsis: """
 The future of civilization rests in the fate of the One Ring, which has been lost 
 for centuries. Powerful forces are unrelenting in their search for it. But fate 
 has placed it in the hands of a young Hobbit named Frodo Baggins (Elijah Wood), 
@@ -44,18 +59,13 @@ who inherits the Ring and steps into legend. A daunting task lies ahead for Frod
 when he becomes the Ringbearer - to destroy the One Ring in the fires of Mount Doom 
 where it was forged.
 """),
-  Book(
-    id: 2,
-    author: 'Isaac Asimov', title: 'Foundation', category: sciFi, synopsis: """
+  Book(id: 2, author: 'Isaac Asimov', title: 'Foundation', category: sciFi, synopsis: """
 Gaal Dornick travels to the Galactic Empire's capital, Trantor, to take a job with 
 his hero, Hari Seldon. When the two meet, Seldon uses a branch of mathematics called 
 psychohistory to prove that the Galactic Empire will fall in three centuries, 
 ushering in a galaxy-wide Dark Age.
 """),
-  
-  Book(
-    id: 3,
-    author: 'Andrzej Sapkowski', title: 'Blood of Elves', category: fantasy, synopsis: """
+  Book(id: 3, author: 'Andrzej Sapkowski', title: 'Blood of Elves', category: fantasy, synopsis: """
 The Empire of Nilfgaard attacks the Kingdom of Cintra. Queen Calanthe commits suicide 
 and her granddaughter, Cirilla, called Ciri and nicknamed the "Lion Cub of Cintra" 
 manages to flee from the burning capital city. Emhyr var Emreis, Emperor of Nilfgaard, 
@@ -64,7 +74,7 @@ not only because of her royal blood, but also because of her magical potential
 and elven blood in her veins.
 """),
   Book(
-    id: 4,
+      id: 4,
       author: 'Philip K. Dick',
       title: 'Do Androids Dream of Electric Sheep',
       category: sciFi,
@@ -76,9 +86,7 @@ made of organic matter so similar to a human's that only a posthumous "bone marr
 analysis" can independently prove the difference, making them almost impossible 
 to distinguish from real people.
 """),
-  Book(
-    id: 5,
-    author: 'Stanislaw Lem', title: 'Solaris', category: sciFi, synopsis: """
+  Book(id: 5, author: 'Stanislaw Lem', title: 'Solaris', category: sciFi, synopsis: """
 Solaris chronicles the ultimate futility of attempted communications with 
 the extraterrestrial life inhabiting a distant alien planet named Solaris. 
 The planet is almost completely covered with an ocean of gel that is revealed 
@@ -90,6 +98,6 @@ a living and a sentient being, and attempt to communicate with it.
 const sciFi = const BookCategory(name: 'Science Fiction');
 const fantasy = const BookCategory(name: 'Fantasy');
 
-final categoryProvider = Provider<List<BookCategory>>((_) => [sciFi, fantasy]);
+final categoryProvider = StateNotifierProvider<CategoryRepository,BookCategoryState>((_) => CategoryRepository());
 final bookstoreRepositoryProvider =
-    StateNotifierProvider<BookstoreRepository, List<Book>>((_) => BookstoreRepository());
+    StateNotifierProvider<BookstoreRepository, BookstoreState>((_) => BookstoreRepository());
