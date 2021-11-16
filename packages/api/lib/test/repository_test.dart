@@ -1,12 +1,8 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_bookstore_api/api.dart';
 import 'package:mockito/mockito.dart';
-import 'package:mockito/annotations.dart';
 import 'package:test/test.dart';
 
-@GenerateMocks(
-  [Book],
-)
 void main() {
   group('BookstoreRepository', () {
     test('addBook - book is added and list is a copy', () {

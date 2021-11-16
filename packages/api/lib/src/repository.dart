@@ -25,7 +25,7 @@ class CategoryRepository extends StateNotifier<List<BookCategory>> {
   }
 
   void removeCategory(BookCategory bookCategory) {
-    state = List.of(state..add(bookCategory));
+    state = List.of(state..remove(bookCategory));
   }
 }
 
