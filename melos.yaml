@@ -21,7 +21,7 @@ scripts:
     description: Build generated files for the API package
 
   test:
-    run: melos run test:flutter
+    run: melos run test:flutter | melos run test:dart
     description: Run all tests
 
   test:flutter:
@@ -29,4 +29,11 @@ scripts:
     description: Run Flutter tests for all flutter packages
     select-package:
       flutter: true
+      dir-exists: test
+
+  test:dart:
+    run: melos exec --dir-exists="test" -c 1 --fail-fast -- "pub run test"
+    description: Run Dart tests for all dart packages
+    select-package:
+      flutter: false
       dir-exists: test

@@ -1,6 +1,6 @@
 import 'package:mockito/mockito.dart';
 import 'package:riverpod/riverpod.dart';
-import 'package:riverpod_bookstore_api/test/repository_test.dart';
+import 'package:riverpod_bookstore_api/api.dart';
 import 'package:riverpod_bookstore_app/navigation/navigator.dart';
 import 'package:test/test.dart';
 
@@ -73,5 +73,6 @@ void main() {
     });
   });
 }
-
+class FakeBook extends Fake implements Book{}
+class FakeBookCategory extends Fake implements BookCategory{}
 class FakeBookstorePage extends Fake implements BookstorePage {}
