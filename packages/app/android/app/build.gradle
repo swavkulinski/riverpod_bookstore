@@ -22,7 +22,6 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
@@ -34,7 +33,12 @@ if (keystorePropertiesFile.exists()) {
     throw new IllegalStateException('No properties file found')
 }
 
-
+// Override Firebase SDK for FlutterFire
+rootProject.ext {
+  set('FlutterFire', [
+    FirebaseSDKVersion: '29.0.0'
+  ])
+}
 
 android {
     compileSdkVersion 30
@@ -88,3 +92,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:multidex:1.0.3'
 }
+
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
