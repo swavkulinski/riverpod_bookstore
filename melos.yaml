@@ -37,3 +37,9 @@ scripts:
     select-package:
       flutter: false
       dir-exists: test
+
+  build:apk:
+    run: melos exec -c 4 --fail-fast -- "flutter build apk"
+    description: Build Release APK
+    select-package:
+      flutter: true
