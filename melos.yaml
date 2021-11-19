@@ -21,11 +21,11 @@ scripts:
     description: Build generated files for the API package
 
   test:
-    run: melos run test:flutter | melos run test:dart
+    run: melos run test:flutter & melos run test:dart
     description: Run all tests
 
   test:flutter:
-    run: melos exec --dir-exists="test" -c 1 --fail-fast -- "flutter test --coverage"
+    run: melos exec --dir-exists="test" -c 1 --fail-fast -- "flutter test"
     description: Run Flutter tests for all flutter packages
     select-package:
       flutter: true
